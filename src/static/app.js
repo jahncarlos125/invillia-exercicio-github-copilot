@@ -23,16 +23,16 @@ document.addEventListener("DOMContentLoaded", () => {
         // Create participants list
         const participantsList = details.participants.length > 0 
           ? details.participants.map(email => `<li>${email}</li>`).join('')
-          : '<li>Nenhum participante inscrito</li>';
+          : '<li class="no-participants">Nenhum participante inscrito</li>';
 
         activityCard.innerHTML = `
           <h4>${name}</h4>
           <p>${details.description}</p>
           <p><strong>Schedule:</strong> ${details.schedule}</p>
           <p><strong>Availability:</strong> ${spotsLeft} spots left</p>
-          <div style="margin-top: 15px;">
-            <p><strong>Participantes inscritos:</strong></p>
-            <ul style="margin-left: 20px; margin-top: 5px;">
+          <div class="participants-section">
+            <p>Participantes inscritos <span class="participant-count">(${details.participants.length}/${details.max_participants})</span></p>
+            <ul class="participants-list">
               ${participantsList}
             </ul>
           </div>
